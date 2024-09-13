@@ -12,12 +12,12 @@ def get_git_model(tokenizer, param):
         input_resolution=param.get('test_crop_size', 224),
     )
     text_decoder = TransformerDecoderTextualHead(
-        visual_feature_size=param.get('visual_feature_size', 768),
+        visual_feature_size=param.get('visual_feature_size', 1024),
         vocab_size=30522,
-        hidden_size=768,
+        hidden_size=1024,
         num_layers=6,
         attention_heads=12,
-        feedforward_size=768* 4,
+        feedforward_size=1024* 4,
         max_caption_length=1024,
         mask_future_positions=True,
         padding_idx=0,
