@@ -16,7 +16,7 @@ def get_git_model(tokenizer, param):
         vocab_size=30522,
         hidden_size=1024,
         num_layers=6,
-        attention_heads=12,
+        attention_heads=16,
         feedforward_size=1024* 4,
         max_caption_length=1024,
         mask_future_positions=True,
