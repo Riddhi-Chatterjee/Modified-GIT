@@ -247,7 +247,6 @@ def forward_backward_example(image_files, captions, prefixs=None, batch_size = 1
     param = {}
     tokenizer = BertTokenizer.from_pretrained('bert-base-uncased', do_lower_case=True)
     model = get_git_model(tokenizer, param)
-    print(model)
     trainable_params = sum(p.numel() for p in model.parameters() if p.requires_grad)
     print("TRAINABLE PARAMETERS: "+str(trainable_params))
     

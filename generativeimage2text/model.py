@@ -18,7 +18,7 @@ def get_git_model(tokenizer, param):
         num_layers=6,
         attention_heads=16,
         feedforward_size=1024* 4,
-        max_caption_length=1024,
+        max_caption_length=16,
         mask_future_positions=True,
         padding_idx=0,
         decoder_type='bert_en',

@@ -247,7 +247,7 @@ def limited_retry_agent(num, func, *args, **kwargs):
                 num,
             ))
             import time
-            print_trace()
+            # print_trace()
             if i == num - 1:
                 raise
             t = random.random() * 5
