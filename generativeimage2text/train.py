@@ -215,7 +215,7 @@ def forward_backward_batch(image_files, captions, prefixs, cfg, model, tokenizer
                         tokenizer, image_transform)
         all_data.append(data)
     data = collate_fn(all_data)
-    logging.info(image_transform)
+    # logging.info(image_transform)
     data = recursive_to_device(data, 'cuda')
 
     model.train()
