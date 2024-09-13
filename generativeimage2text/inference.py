@@ -66,7 +66,7 @@ class MinMaxResizeForTest(object):
 
 def test_git_inference_single_image(image_path, prefix):
     model = torch.load("saved_model.pth")
-    tokenizer = torch.load("saveed_tokenizer.pth")
+    tokenizer = torch.load("saved_tokenizer.pth")
     param = torch.load("saved_param.pth")
     # param = {}
     # if File.isfile(f'aux_data/models/{model_name}/parameter.yaml'):

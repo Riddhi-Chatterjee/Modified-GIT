@@ -247,6 +247,9 @@ def forward_backward_example(image_files, captions, prefixs=None, batch_size = 1
     param = {}
     tokenizer = BertTokenizer.from_pretrained('bert-base-uncased', do_lower_case=True)
     model = get_git_model(tokenizer, param)
+    print(model)
+    trainable_params = sum(p.numel() for p in model.parameters() if p.requires_grad)
+    print("TRAINABLE PARAMETERS: "+str(trainable_params))
     
     for episode in range(num_episodes):
         tot_files = len(image_files)
@@ -259,7 +262,7 @@ def forward_backward_example(image_files, captions, prefixs=None, batch_size = 1
             batch_num += 1
     
     torch.save(model, "saved_model.pth")
-    torch.save(tokenizer, "saveed_tokenizer.pth")
+    torch.save(tokenizer, "saved_tokenizer.pth")
     torch.save(param, "saved_param.pth")
     
 
