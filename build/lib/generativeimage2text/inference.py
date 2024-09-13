@@ -306,7 +306,8 @@ def evaluate_on_coco_caption(res_file, label_file, outfile=None,
     cocoEval.evaluate()
     result = cocoEval.eval
     if not outfile:
-        print(result)
+        # print(result)
+        pass
     else:
         with open(outfile, 'w') as fp:
             json.dump(result, fp, indent=4)
