@@ -261,8 +261,8 @@ def forward_backward_example(image_files, captions, prefixs=None, batch_size = 1
             tot_files -= batch_size
             batch_num += 1
     
-    torch.save(model, "saved_model.pth")
-    
+    with open("saved_model.pkl", "wb") as file:
+        pickle.dump(model, file)
     with open("saved_tokenizer.pkl", "wb") as file:
         pickle.dump(tokenizer, file)
     with open("saved_param.pkl", "wb") as file:

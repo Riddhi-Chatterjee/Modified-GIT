@@ -66,10 +66,12 @@ class MinMaxResizeForTest(object):
 
 
 def test_git_inference_single_image(image_path, prefix):
-    model = torch.load("saved_model.pth")
+    model = ""
     tokenizer = ""
     param = ""
     
+    with open("saved_model.pkl", "rb") as file:
+        model = pickle.load(file)
     with open("saved_tokenizer.pkl", "rb") as file:
         tokenizer = pickle.load(file)
     with open("saved_param.pkl", "rb") as file:
