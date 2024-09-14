@@ -16,6 +16,7 @@ import torchvision.transforms as transforms
 from torchvision.transforms import Compose, Resize, CenterCrop, ToTensor, Normalize
 from PIL import Image
 from azfuse import File
+import pickle
 
 from .common import init_logging
 from .common import parse_general_args
@@ -261,8 +262,11 @@ def forward_backward_example(image_files, captions, prefixs=None, batch_size = 1
             batch_num += 1
     
     torch.save(model, "saved_model.pth")
-    torch.save(tokenizer, "saved_tokenizer.pth")
-    # torch.save(param, "saved_param.pth")
+    
+    with open("saved_tokenizer.pkl", "wb") as file:
+        pickle.dump(tokenizer, file)
+    with open("saved_param.pkl", "wb") as file:
+        pickle.dump(param, file)
     
 
 def speed_test_forward_backward():

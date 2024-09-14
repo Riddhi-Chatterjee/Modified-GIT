@@ -15,6 +15,7 @@ from transformers import BertTokenizer
 from torchvision.transforms import Compose, Resize, CenterCrop, ToTensor, Normalize
 from PIL import Image
 from azfuse import File
+import pickle
 
 from .common import init_logging
 from .common import parse_general_args
@@ -66,9 +67,15 @@ class MinMaxResizeForTest(object):
 
 def test_git_inference_single_image(image_path, prefix):
     model = torch.load("saved_model.pth")
-    tokenizer = torch.load("saved_tokenizer.pth")
-    # param = torch.load("saved_param.pth")
-    param = {}
+    tokenizer = ""
+    param = ""
+    
+    with open("saved_tokenizer.pkl", "rb") as file:
+        tokenizer = pickle.load(file)
+    with open("saved_param.pkl", "rb") as file:
+        param = pickle.load(file)
+    
+    # param = {}
     # if File.isfile(f'aux_data/models/{model_name}/parameter.yaml'):
     #     param = load_from_yaml_file(f'aux_data/models/{model_name}/parameter.yaml')
 
