@@ -262,7 +262,7 @@ def forward_backward_example(image_files, captions, prefixs=None, batch_size = 1
     
     torch.save(model, "saved_model.pth")
     torch.save(tokenizer, "saved_tokenizer.pth")
-    torch.save(param, "saved_param.pth")
+    # torch.save(param, "saved_param.pth")
     
 
 def speed_test_forward_backward():
